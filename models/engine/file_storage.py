@@ -19,7 +19,7 @@ class FileStorage:
 
     def all(self):
         """returns all the instances of the past"""
-        return self.__objects
+        return self.__objects.copy()
 
     def new(self, obj):
         """adds a new object to the __object dictionary"""
@@ -41,3 +41,6 @@ class FileStorage:
             fdict = json.loads(string)
         for key, value in fdict.items():
             self.__objects[key] = value
+
+    def remove(self, key):
+        del self.__objects[key]

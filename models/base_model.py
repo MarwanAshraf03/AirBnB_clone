@@ -18,10 +18,15 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
-                setattr(self, key, value)
+                # setattr(self, key, value)
+                self.__setattr__(key, value)
                 if key == "created_at" or key == "updated_at":
-                    setattr(
-                        self,
+                    # setattr(
+                    #     self,
+                    #     key,
+                    #     datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    #     )
+                    self.__setattr__(
                         key,
                         datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                         )
@@ -42,7 +47,7 @@ class BaseModel:
 
     def to_dict(self):
         """returns the dictionary representation of class"""
-        ret = self.__dict__
+        ret = self.__dict__.copy()
         ret['__class__'] = __class__.__name__
         ret['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         ret['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")

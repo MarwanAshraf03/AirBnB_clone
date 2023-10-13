@@ -44,3 +44,6 @@ class FileStorage:
 
     def remove(self, key):
         del self.__objects[key]
+
+    def update(self, key, dictionary):
+        self.__objects[key] = dictionary

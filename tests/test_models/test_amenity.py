@@ -6,10 +6,9 @@ import unittest
 from models.base_model import BaseModel
 from models.amenity import Amenity
 
+
 class test_Amenity(unittest.TestCase):
-    '''
-    
-    '''
+    ''' '''
 
     def __init__(self, *args, **kwargs):
         ''' '''
@@ -27,6 +26,6 @@ class test_Amenity(unittest.TestCase):
         my_amenity = Amenity()
         self.assertIsInstance(my_amenity.name, str)
 
+
 if __name__ == "__main__":
     unittest.main()
-

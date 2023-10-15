@@ -137,6 +137,7 @@ or updating attribute (save the change into the JSON file)
         storage.all()[f"{llst[0]}.{llst[1]}"].save()
 
     def sset(self, value):
+        """changes value type to its original type"""
         try:
             value = int(value)
         except ValueError:

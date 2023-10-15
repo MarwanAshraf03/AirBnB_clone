@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' '''
+''' Place Class '''
 
 import os
 import unittest
@@ -8,10 +8,10 @@ from models.place import Place
 
 
 class test_place(unittest.TestCase):
-    ''' '''
+    ''' Place Class '''
 
     def __init__(self, *args, **kwargs):
-        ''' '''
+        ''' initialization '''
         super().__init__(*args, **kwargs)
         self.name = 'Place'
         self.cls = Place

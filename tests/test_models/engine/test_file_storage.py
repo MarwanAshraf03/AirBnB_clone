@@ -26,5 +26,6 @@ class TestFileStorage(unittest.TestCase):
         dic[f"{type(m2).__name__}.{m2.id}"] = m2
         self.assertEqual(dic, storage.all())
 
+
 if __name__ == '__main__':
     unittest.main()

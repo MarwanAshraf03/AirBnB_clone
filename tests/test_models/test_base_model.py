@@ -21,6 +21,14 @@ class TestBaseModel(unittest.TestCase):
         b2 = BaseModel()
         self.assertNotEqual(b1.id, b2.id)
 
+    def test_instance_initialization(self):
+        '''test whether the instance is initialized'''
+        my_model = BaseModel()
+        self.assertIsNotNone(my_model.id)
+        self.assertIsNotNone(my_model.created_at)
+        self.assertIsNotNone(my_model.updated_at)
+
+
     def test_id_string(self):
         b = BaseModel()
         self.assertIsInstance(b.id, str)

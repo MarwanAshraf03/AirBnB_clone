@@ -4,6 +4,7 @@ import unittest
 from models.base_model import BaseModel
 import datetime
 
+
 class TestBaseModel(unittest.TestCase):
     """Define unittests for testing of BaseModel class"""
 
@@ -33,7 +34,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str__(self):
         b = BaseModel()
-        self.assertRegex(b.__str__(), "\[BaseModel\] \(.*\) \{.*\}")
+        self.assertRegex(b.__str__(), "\\[BaseModel\\] \\(.*\\) \\{.*\\}")
 
     def test_save(self):
         b = BaseModel()
@@ -43,111 +44,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(before, after)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def test_dict_init_(self):
+        b = BaseModel()
+        dictionary = b.to_dict()
+        b2 = BaseModel(**dictionary)
+        self.assertEqual(str(b), str(b2))
 
 
 if __name__ == '__main__':

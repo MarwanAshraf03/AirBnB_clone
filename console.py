@@ -48,7 +48,7 @@ name and id
         llst = line.split()
         if len(llst) < 1:
             print("** class name missing **")
-        elif llst[0] != "BaseModel":
+        elif llst[0] not in self.classes.keys():
             print("** class doesn't exist **")
         elif len(llst) < 2:
             print("** instance id missing **")
@@ -65,7 +65,7 @@ into the JSON file)
         llst = line.split()
         if len(llst) < 1:
             print("** class name missing **")
-        elif llst[0] != "BaseModel":
+        elif llst[0] not in self.classes.keys():
             print("** class doesn't exist **")
         elif len(llst) < 2:
             print("** instance id missing **")
@@ -102,7 +102,7 @@ or updating attribute (save the change into the JSON file)
         if len(llst) < 1:
             print("** class name missing **")
             return
-        elif llst[0] != "BaseModel":
+        elif llst[0] not in self.classes.keys():
             print("** class doesn't exist **")
             return
         elif len(llst) < 2:

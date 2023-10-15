@@ -67,6 +67,5 @@ class test_file_storage(unittest.TestCase):
         self.storage_reset()
 
 
-
 if __name__ == "__main__":
     unittest.main()

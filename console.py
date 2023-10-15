@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
-import json
 """Console module"""
 
 
 class HBNBCommand(cmd.Cmd):
-
     """console class"""
     prompt = "(hbnb) "
-
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User
+    }
     def do_quit(self, line):
         """Quit command to exit the program
         """
@@ -32,8 +34,8 @@ prints the id
         llst = line.split()
         if len(llst) < 1:
             print("** class name missing **")
-        elif llst[0] == "BaseModel":
-            b = BaseModel()
+        elif llst[0] in self.classes.keys():
+            b = self.classes[llst[0]]()
             print(b.id)
             b.save()
         else:
@@ -81,10 +83,10 @@ or not on the class name
         llst = line.split()
         plist = []
         if len(llst) > 0:
-            if llst[0] == "BaseModel":
+            if llst[0] in self.classes.keys():
                 for key in dictionary.keys():
                     if llst[0] in key:
-                        plist.append(str(BaseModel(**dictionary[key])))
+                        plist.append(dictionary[key].__str__())
             else:
                 print("** class doesn't exist **")
         else:

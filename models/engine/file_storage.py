@@ -33,7 +33,11 @@ class FileStorage:
 
     def reload(self):
         from models.base_model import BaseModel
-        classes = {"BaseModel": BaseModel}
+        from models.user import User
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User
+        }
         if not path.isfile(self.__file_path):
             return
         with open(self.__file_path, "r", encoding="utf-8") as f:
@@ -46,6 +50,3 @@ class FileStorage:
 
     def remove(self, key):
         del self.__objects[key]
-
-    def update(self, key, dictionary):
-        self.__objects[key] = dictionary

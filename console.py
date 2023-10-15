@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import cmd
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
 from models import storage
 import json
 """Console module"""
@@ -15,13 +14,12 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program
         """
-        print
         return True
 
     def do_EOF(self, line):
         """break when EOF char is given
         """
-        print
+        print()
         return True
 
     def emptyline(self):
@@ -54,8 +52,7 @@ name and id
             print("** instance id missing **")
         else:
             try:
-                b = BaseModel(storage.all()[f"{llst[0]}.{llst[1]}"])
-                print(b)
+                print(storage.all()[f"{llst[0]}.{llst[1]}"])
             except KeyError:
                 print("** no instance found **")
 
@@ -92,7 +89,7 @@ or not on the class name
                 print("** class doesn't exist **")
         else:
             for key in dictionary.keys():
-                plist.append(str(BaseModel(**dictionary[key])))
+                plist.append(dictionary[key].__str__())
         print(plist)
 
     def do_update(self, line):
@@ -121,9 +118,18 @@ or updating attribute (save the change into the JSON file)
         elif len(llst) < 4:
             print("** value missing **")
             return
-        b = BaseModel(**storage.all()[f"{llst[0]}.{llst[1]}"])
-        b.update(llst[2], llst[3])
-        b.save()
+        llst[3] = self.sset(llst[3])
+        setattr(storage.all()[f"{llst[0]}.{llst[1]}"], llst[2], llst[3])
+
+    def sset(self, value):
+        try:
+            value = int(value)
+        except ValueError:
+            try:
+                value = float(value)
+            except ValueError:
+                pass
+        return value
 
 
 if __name__ == '__main__':

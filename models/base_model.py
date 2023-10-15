@@ -35,7 +35,7 @@ class BaseModel:
         for key in self.__dict__:
             if type(self.__dict__[key]) is str:
                 self.__dict__[key] = self.__dict__[key].replace('"', '')
-        return (f"[{__class__.__name__}] ({self.id}) {self.__dict__}")
+        return (f"[{type(self).__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         """sets the updating time to now"""
@@ -45,7 +45,7 @@ class BaseModel:
     def to_dict(self):
         """returns the dictionary representation of class"""
         ret = self.__dict__.copy()
-        ret['__class__'] = __class__.__name__
+        ret['__class__'] = type(self).__name__
         ret['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         ret['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return ret

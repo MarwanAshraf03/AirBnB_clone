@@ -35,6 +35,13 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         self.assertRegex(b.__str__(), "\[BaseModel\] \(.*\) \{.*\}")
 
+    def test_save(self):
+        b = BaseModel()
+        before = b.updated_at
+        b.save()
+        after = b.updated_at
+        self.assertNotEqual(before, after)
+
 
 
 

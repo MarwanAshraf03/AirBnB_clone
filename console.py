@@ -123,6 +123,7 @@ or updating attribute (save the change into the JSON file)
             return
         llst[3] = self.sset(llst[3])
         setattr(storage.all()[f"{llst[0]}.{llst[1]}"], llst[2], llst[3])
+        storage.all()[f"{llst[0]}.{llst[1]}"].save()
 
     def sset(self, value):
         try:

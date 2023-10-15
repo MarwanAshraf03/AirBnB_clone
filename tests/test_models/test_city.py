@@ -6,10 +6,9 @@ import unittest
 from models.base_model import BaseModel
 from models.city import City
 
+
 class test_city(unittest.TestCase):
-    '''
-    
-    '''
+    ''' '''
 
     def __init__(self, *args, **kwargs):
         ''' '''
@@ -32,6 +31,6 @@ class test_city(unittest.TestCase):
         my_city = City()
         self.assertIsInstance(my_city.state_id, str)
 
+
 if __name__ == "__main__":
     unittest.main()
-

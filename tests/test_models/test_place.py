@@ -6,10 +6,9 @@ import unittest
 from models.base_model import BaseModel
 from models.place import Place
 
+
 class test_place(unittest.TestCase):
-    '''
-    
-    '''
+    ''' '''
 
     def __init__(self, *args, **kwargs):
         ''' '''
@@ -83,6 +82,6 @@ class test_place(unittest.TestCase):
         my_place = Place()
         self.assertIsInstance(my_place.amenity_ids, list)
 
+
 if __name__ == "__main__":
     unittest.main()
-

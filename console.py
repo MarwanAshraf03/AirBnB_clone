@@ -13,6 +13,7 @@ class HBNBCommand(cmd.Cmd):
         "BaseModel": BaseModel,
         "User": User
     }
+
     def do_quit(self, line):
         """Quit command to exit the program
         """

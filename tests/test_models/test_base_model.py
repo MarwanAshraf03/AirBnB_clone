@@ -28,7 +28,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(my_model.created_at)
         self.assertIsNotNone(my_model.updated_at)
 
-
     def test_id_string(self):
         b = BaseModel()
         self.assertIsInstance(b.id, str)
@@ -53,7 +52,6 @@ class TestBaseModel(unittest.TestCase):
         after = b.updated_at
         self.assertNotEqual(before, after)
 
-
     def test_dict_init_(self):
         b = BaseModel()
         dictionary = b.to_dict()
@@ -65,7 +63,7 @@ class TestBaseModel(unittest.TestCase):
         dictionary = storage.all()
         dictionary = dictionary[f"BaseModel.{b.id}"]
         self.assertEqual(b.to_dict(), dictionary.to_dict())
-        
+
 
 if __name__ == '__main__':
     unittest.main()

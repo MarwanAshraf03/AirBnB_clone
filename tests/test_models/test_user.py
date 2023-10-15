@@ -6,10 +6,9 @@ import unittest
 from models.base_model import BaseModel
 from models.user import User
 
+
 class test_user(unittest.TestCase):
-    '''
-    
-    '''
+    ''' '''
 
     def __init__(self, *args, **kwargs):
         ''' '''
@@ -42,6 +41,6 @@ class test_user(unittest.TestCase):
         my_user = User()
         self.assertIsInstance(my_user.email, str)
 
+
 if __name__ == "__main__":
     unittest.main()
-

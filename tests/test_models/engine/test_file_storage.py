@@ -14,7 +14,7 @@ class TestFileStorage(unittest.TestCase):
     def test_instance_type(self):
         ''' '''
         storage = FileStorage()
-        self.assertIsInstance(storage, FileStorage)        
+        self.assertIsInstance(storage, FileStorage)
 
     def test_all(self):
         ''' '''

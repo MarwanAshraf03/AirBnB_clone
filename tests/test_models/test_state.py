@@ -9,8 +9,6 @@ from models.state import State
 
 class test_state(unittest.TestCase):
     ''' state module '''
-
-
     def __init__(self, *args, **kwargs):
         ''' initialization '''
         super().__init__(*args, **kwargs)

@@ -8,9 +8,7 @@ from models.review import Review
 
 
 class test_Review(unittest.TestCase):
-    ''' Review Class '''
-
-
+    ''' Review Class '''`
     def __init__(self, *args, **kwargs):
         ''' initialization '''
         super().__init__(*args, **kwargs)

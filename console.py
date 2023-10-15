@@ -1,9 +1,9 @@
 #!/usr/bin/python3
+"""Console module"""
 import cmd
 from models.base_model import BaseModel
 from models.user import User
 from models import storage
-"""Console module"""
 
 
 class HBNBCommand(cmd.Cmd):

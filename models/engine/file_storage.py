@@ -22,9 +22,11 @@ class FileStorage:
         return self.__objects.copy()
 
     def new(self, obj):
+        """creates a new instance"""
         self.__objects[f"{type(obj).__name__}.{obj.id}"] = obj
 
     def save(self):
+        """saves an existing instance after being edited"""
         for i, j in self.__objects.items():
             self.__objects[i] = j.to_dict()
         with open(self.__file_path, "w", encoding='utf-8') as f:
@@ -32,6 +34,7 @@ class FileStorage:
         self.reload()
 
     def reload(self):
+        """reloads the data into json strings"""
         from models.base_model import BaseModel
         from models.user import User
         from models.amenity import Amenity
@@ -60,5 +63,6 @@ class FileStorage:
             self.__objects[i] = classes[j["__class__"]](**j)
 
     def remove(self, key):
+        """removes an instance by its key"""
         del self.__objects[key]
         self.save()

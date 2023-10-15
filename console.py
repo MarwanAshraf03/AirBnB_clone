@@ -90,6 +90,7 @@ or not on the class name
                         plist.append(dictionary[key].__str__())
             else:
                 print("** class doesn't exist **")
+                return
         else:
             for key in dictionary.keys():
                 plist.append(dictionary[key].__str__())

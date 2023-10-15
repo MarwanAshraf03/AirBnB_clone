@@ -18,8 +18,13 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         ''' '''
-        pass
-
+        storage = FileStorage()
+        m1 = BaseModel()
+        m2 = BaseModel()
+        dic = {}
+        dic[f"{type(m1).__name__}.{m1.id}"] = m1
+        dic[f"{type(m2).__name__}.{m2.id}"] = m2
+        self.assertEqual(dic, storage.all())
 
 if __name__ == '__main__':
     unittest.main()

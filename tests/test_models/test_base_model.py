@@ -54,7 +54,6 @@ class TestBaseModel(unittest.TestCase):
 
     def test_storage(self):
         b = BaseModel()
-        b.save()
         dictionary = storage.all()
         dictionary = dictionary[f"BaseModel.{b.id}"]
         self.assertEqual(b.to_dict(), dictionary.to_dict())

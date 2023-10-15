@@ -50,3 +50,4 @@ class FileStorage:
 
     def remove(self, key):
         del self.__objects[key]
+        self.save()

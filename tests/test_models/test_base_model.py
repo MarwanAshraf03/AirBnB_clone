@@ -2,6 +2,8 @@
 """Unittest for Rectangle class"""
 import unittest
 from models.base_model import BaseModel
+from models import storage
+import json
 import datetime
 
 
@@ -50,6 +52,13 @@ class TestBaseModel(unittest.TestCase):
         b2 = BaseModel(**dictionary)
         self.assertEqual(str(b), str(b2))
 
+    def test_storage(self):
+        b = BaseModel()
+        b.save()
+        dictionary = storage.all()
+        dictionary = dictionary[f"BaseModel.{b.id}"]
+        self.assertEqual(b.to_dict(), dictionary.to_dict())
+        
 
 if __name__ == '__main__':
     unittest.main()

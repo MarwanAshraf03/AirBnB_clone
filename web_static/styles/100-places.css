@@ -1,3 +1,6 @@
+* {
+    list-style: none;
+}
 .places {
     margin: 0;
     padding: 0;
@@ -27,14 +30,14 @@ article {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: space-around;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
 }
 
 article h2 {
     font-size: 30px;
-    flex-basis: 80%;
+    flex-basis: 70%;
 }
 
 .user,
@@ -53,7 +56,7 @@ article h2 {
     color: #FF5A5F;
     border: 4px #FF5A5F solid;
     min-width: 60px;
-    max-width: 60px;
+    max-width: 65px;
     height: 60px;
     font-size: 30px;
     border-radius: 50%;
@@ -101,4 +104,68 @@ article h2 {
     background-repeat: no-repeat;
     width: 50px;
     height: 50px;
+}
+
+.places .amenities {
+    list-style-type: none;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    flex-basis: 100%;
+    margin-bottom: 18px;
+    margin-top: 18px;
+}
+
+.places .amenities h2 {
+    margin: 0;
+    padding: 0;
+    flex-basis: 0%;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.reviews {
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.reviews h2 {
+    font-size: 16px;
+    border-bottom: 1px #DDDDDD solid;
+    margin-bottom: 10px;
+}
+
+.tv-icon {
+    background-image: url(../images/icon_tv.png);
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+}
+
+.wifi-icon {
+    background-image: url(../images/icon_wifi.png);
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+}
+
+.pets-icon {
+    background-image: url(../images/icon_pets.png);
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+}
+
+.places .amenities li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.places .amenities li p {
+    margin-left: 15px;
+}
+
+span {
+    font-weight: bold;
 }
